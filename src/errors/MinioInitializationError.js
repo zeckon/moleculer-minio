@@ -1,4 +1,4 @@
-const {MoleculerError} = require("moleculer/src/errors");
+const { MoleculerError } = require("moleculer").Errors;
 
 /**
  * Error that should be thrown when the Minio Service can not be Initialized
@@ -18,8 +18,11 @@ module.exports = class MinioInitializationError extends MoleculerError {
 	 * @memberof MinioInitializationError
 	 */
 	constructor(
-		message = "Minio can not be initialized", code = 500,
-		type = "MINIO_INITIALIZATION_ERROR", data = {}) {
+		message = "Minio can not be initialized",
+		code = 500,
+		type = "MINIO_INITIALIZATION_ERROR",
+		data = {}
+	) {
 		super(message);
 		this.code = code;
 		this.type = type;

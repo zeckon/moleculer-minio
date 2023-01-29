@@ -1,4 +1,4 @@
-const {MoleculerRetryableError} = require("moleculer/src/errors");
+const { MoleculerRetryableError } = require("moleculer").Errors;
 
 /**
  * Error that should be thrown when the Minio Backend can not be pinged
@@ -18,8 +18,11 @@ module.exports = class MinioPingError extends MoleculerRetryableError {
 	 * @memberof MinioPingError
 	 */
 	constructor(
-		message = "Minio Backend not reachable", code = 502,
-		type = "MINIO_PING_ERROR", data = {}) {
+		message = "Minio Backend not reachable",
+		code = 502,
+		type = "MINIO_PING_ERROR",
+		data = {}
+	) {
 		super(message);
 		this.code = code;
 		this.type = type;
